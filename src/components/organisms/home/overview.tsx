@@ -4,6 +4,9 @@ import { motion, useAnimationControls } from "framer-motion";
 import TypescriptIcon from "@/components/atoms/TypescriptIcon";
 import ReactIcon from "@/components/atoms/ReactIcon";
 import NodeIcon from "@/components/atoms/NodeIcon";
+import NextIcon from "@/components/atoms/NextIcon";
+import VimIcon from "@/components/atoms/VimIcon";
+import AwsIcon from "@/components/atoms/AwsIcon";
 
 export default function Overview() {
   const controls = useAnimationControls();
@@ -14,7 +17,7 @@ export default function Overview() {
   };
 
   return (
-    <div className="w-full grid grid-cols-12 pt-10 items-center">
+    <div className="w-full min-h-[80vh] grid grid-cols-12 items-center">
       <div className="introduce col-span-8 text-white">
         <motion.h3
           {...animation}
@@ -102,10 +105,14 @@ export default function Overview() {
             current favorite tech stack/tools:
           </p>
 
-          <div className="flex items-center gap-2 mt-2">
+          <div className="flex items-center gap-2 mt-2 text-gray-400">
             <TypescriptIcon className="h-6 w-6 hover:text-[#3178C6]" />
             <ReactIcon className="h-6 w-6 hover:text-[#61DAFB]" />
             <NodeIcon className="hover:text-[#5aad45]" />
+            <NextIcon className="h-6 w-6 hover:text-[#fff]" />
+            <span className="text-gray-400 font-light">|</span>
+            <VimIcon className="h-6 w-6 hover:text-[#019733]" />
+            <AwsIcon className="h-6 w-6 hover:text-[#ff9c15]" />
           </div>
         </motion.div>
       </div>
