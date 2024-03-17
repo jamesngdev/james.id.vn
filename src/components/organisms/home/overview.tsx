@@ -17,7 +17,7 @@ export default function Overview() {
   };
 
   return (
-    <div className="w-full min-h-[80vh] grid grid-cols-12 items-center">
+    <div className="w-full min-h-[30vh] grid grid-cols-12 items-center mt-[150px]">
       <div className="introduce col-span-8 text-white">
         <motion.h3
           {...animation}
@@ -52,7 +52,7 @@ export default function Overview() {
           </motion.div>
         </motion.h3>
         <motion.h3
-          className="text-[4rem] font-[1000] mb-2"
+          className="text-[3rem] font-[1000] mb-2"
           {...animation}
           transition={{
             delay: 0.2,
@@ -95,7 +95,7 @@ export default function Overview() {
         </motion.div>
 
         <motion.div
-          className="mt-14"
+          className="mt-5"
           {...animation}
           transition={{
             delay: 0.9,
@@ -134,8 +134,8 @@ export default function Overview() {
         >
           <Image
             src="https://avatars.githubusercontent.com/u/101863422"
-            width={400}
-            height={400}
+            width={300}
+            height={300}
             alt="hero"
             className="rounded-3xl"
             priority

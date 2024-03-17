@@ -1,0 +1,74 @@
+---
+title: Fitur Multiple Reactions
+description: Bikin fitur multiple reactions 👏😲🧐 di Next.js (MongoDB, Prisma, SWR)
+date: '2023-01-15'
+lang: id
+tags:
+  - features
+  - concept
+category: features
+---
+
+# Welcome to my MDX page!
+
+This is some **bold** and _italics_ text.
+
+This is a list in markdown:
+
+- One
+- Two
+- Three
+
+Checkout my React component:
+
+
+## Konsep
+
+Jadi sebenarnya yang lama tuh bikin REST API, banyak refactoring, lama bikin skema databasenya dan lain-lain yang ke arah BE nya sih.
+
+Pasti banyak yang kurang tepat, harap dimaklum ya, bukan anak BE soalnya ✌
+
+### Database
+
+Jujur setelah tiga tahun gitu saya baru berurusan lagi sama database. Terakhir ngurusin database teh pas bikin aplikasi ujian akhir perkuliahan.
+
+Pertama nentuin dulu mau hosting dimana nih. Masalah SQL noSQL ngga masalah, karena masih coba-coba, jadi nyoba cari yang gratisan wkwk dan dapet hostingan **MongoDB Atlas** yang shared, lumayan lah.
+
+Karena ORM nya juga saya pake **prisma**, jadi kayanya ngga terlalu ribet sih kalau migrasi ke database yang lain.
+
+Mari ke skema database. Ini fokus ke fitur reactionsnya aja ya, sebenarnya ada field buat views dan shares tapi sengaja ngga saya masukin.
+
+Pertama, saya bikin table **ContentMeta**. Ini buat nyimpen data postingannya.
+
+Gaperlu nyimpen title, date, konten dll karena emang data postingannya langsung build secara lokal dari mdx, jadi cuma nyimpen slugnya aja.
+
+```scheme {4}
+model ContentMeta {
+  id          String
+
+  slug        String
+  createdAt   DateTime
+}
+```
+
+Kemudian ini nih yang penting, table **Reaction**, buat nyimpen si **reactions**nya.
+
+```scheme {4-7}
+model Reaction {
+  id          String
+
+  type        ReactionType
+  section     String
+  count       Int
+  sessionId   String
+  createdAt   DateTime
+
+  contentId   String
+}
+
+enum ReactionType {
+  CLAPPING
+  THINKING
+  AMAZED
+}
+```
